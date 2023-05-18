@@ -36,6 +36,11 @@ $routes->get('/users/(:num)', 'UsersController::getUser/$1');
 $routes->post('/users', 'UsersController::createUser');
 $routes->post('/login', 'UsersController::login');
 
+$routes->get('/contact/(:num)', 'UsersController::getContactById/$1');
+$routes->get('/deleteContact/(:num)/(:num)', 'UsersController::deleteContact/$1/$2');
+$routes->post('/contact', 'UsersController::createContact');
+$routes->post('/modifyContact', 'UsersController::putContact');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
