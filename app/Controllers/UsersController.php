@@ -14,6 +14,8 @@ class UsersController extends Controller{
 
     /*Users Methods*/
     public function getUsers() {
+        header('Access-Control-Allow-Origin: *');
+
         $model = new User();
         $data = $model->findAll();
         return $this->respond($data, 200);
@@ -53,7 +55,7 @@ class UsersController extends Controller{
         if ( $user ){
             $user = $user[0];
             if( password_verify($request->password, $user->password) )
-                return $this->respond(["id" => $user->id, "name" => $user->name, "lastname" => $user->lastname, "email" => $user->email, "phone" => $user->phone], 200);
+                return $this->respond(["message" => "success", "data" => ["id" => $user->id, "name" => $user->name, "lastname" => $user->lastname, "email" => $user->email, "phone" => $user->phone]], 200);
             else return $this->respond(["message" => 'password is incorrect'], 401);
         }
         else return $this->respond(["message" => 'email is not registered'], 401);

@@ -1,4 +1,7 @@
 <?php
+    header('Access-Control-Allow-Origin: *');
+    header('Access-Control-Allow-Methods: *');
+    header("Access-Control-Allow-Headers: Content-Type, Content-Length, Accept-Encoding");
 
 // Check PHP version.
 $minPhpVersion = '7.4'; // If you update this, don't forget to update `spark`.
